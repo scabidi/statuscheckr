@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Scabidi - Popular People</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        .container {
+            max-width: 600px;
+            margin: 50px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+        }
+
+        ul {
+            list-style-type: none;
+            padding: 0;
+        }
+
+        li {
+            margin-bottom: 10px;
+            padding: 10px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #f9f9f9;
+        }
+
+        li:hover {
+            background-color: #e9e9e9;
+        }
+
+        p.error {
+            color: red;
+            text-align: center;
+        }
+.list-container {
+    max-height: 300px; /* Adjust the maximum height as needed */
+    overflow-y: auto;
+}
+
+    </style>
+</head>
+<body>
+<div class="container">
+    <a href="https://scabidi.com/statuscheckr"><h1>Scabidi - Popular People</h1></a>
+    <div class="list-container">
+        <ul id="popularList">
+            <!-- List items will be added dynamically using JavaScript -->
+        </ul>
+    </div>
+    <p class="error" id="error"></p>
+</div>
+    <a href="login.html">Login</a> | <a href="signup.html">Signup</a>
+
+    <script>
+        // Define a list of popular people with their usernames
+        const popularPeople = [
+            { name: "Scabidi", username: "scabidi" },
+            { name: "Tester", username: "Tester" },
+            { name: "Waffle", username: "waffle" }
+            // Add more popular people with their usernames as needed
+        ];
+
+// Function to dynamically populate the list
+// Function to dynamically populate the list
+async function populatePopularList() {
+    const popularList = document.getElementById("popularList");
+
+    // Loop through the popular people array and create list items
+    for (const person of popularPeople) {
+        const listItem = document.createElement("li");
+        listItem.textContent = `${person.name} - Loading status...`;
+        popularList.appendChild(listItem);
+
+        try {
+            // Make AJAX request to get status
+            const response = await fetch(`get_status.php?username=${person.username}`);
+            const data = await response.json();
+            listItem.textContent = `${person.name} - ${data.status}`;
+        } catch (error) {
+            listItem.textContent = `${person.name} - Error loading status`;
+            console.error('Error fetching status:', error);
+            document.getElementById("error").textContent = "Error loading data";
+        }
+    }
+}
+
+// Call the function to populate the list when the page loads
+window.onload = populatePopularList;
+
+    </script>
+</body>
+</html>

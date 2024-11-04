@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Status Checkr</title>
+    <style>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 600px;
+    margin: 50px auto;
+    padding: 20px;
+    background-color: #fff;
+    border-radius: 10px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+}
+
+form {
+    text-align: center;
+}
+
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 16px;
+}
+
+button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #0056b3;
+}
+
+a {
+    text-decoration: none;
+    color: #007bff;
+}
+
+a:hover {
+    text-decoration: underline;
+}
+
+    </style>
+</head>
+<body>
+    <a href="https://scabidi.com/statuscheckr"><h1>Status Checkr Beta</h1></a>
+    <form action="search.php" method="GET">
+        <input type="text" name="username" placeholder="Search Username">
+        <button type="submit">Search</button>
+    </form>
+    <p align="center"><a href="login.html">Login</a> | <a href="signup.html">Signup</a></p>
+ <a href="https://scabidi.com/statuscheckr/followers.php"><p align="center">Followers</p></a>
+
+    <!-- New button added here -->
+    <div style="text-align: center; margin-top: 20px;">
+        <a href="https://scabidi.com/statuscheckr/popular.html"><button>Popular People</button></a>
+    </div>
+</body>
+</html>
